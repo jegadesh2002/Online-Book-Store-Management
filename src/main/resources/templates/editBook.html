@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Book Store</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body class=" bgimg text-center">
+	<div>
+
+		<nav
+			class="navbar navbar-expand-sm bg-dark navbar-dark shift navContent">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand navTitle">Book Store</a>
+				</div>
+				<ul class="navbar-nav ">
+					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/availableBooks">Available Books</a></li>
+					<li class="nav-item"><a class="nav-link" href="/myBook">My
+							Books</a></li>
+
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="/newBook">New
+							Book Register</a></li>
+
+				</ul>
+			</div>
+
+
+
+		</nav>
+
+		<div>
+			<h1 class="text-primary">Edit Book Details</h1>
+		</div>
+		<div class="formWidth mt-5 border-1">
+			<form action="#" th:action=@{/save} method="post" th:object="${book}">
+				<div class="form-group row mb-3">
+					<label for="name" class="form-label col ms-5"><h4>Id:</h4></label>
+					<input type="text" class="form-control col me-5" id="name"
+						name="id" th:value="${book.id}" readonly="readonly">
+
+				</div>
+				<div class="form-group row mb-3">
+					<label for="name" class="form-label col ms-5"><h4>Book
+							name:</h4></label> <input type="text" class="form-control col me-5" id="name"
+						name="name" th:value="${book.name}">
+
+				</div>
+				<div class="form-group row mb-3">
+					<label for="author" class="form-label col ms-5"><h4>Author
+							name:</h4></label> <input type="text" class="form-control col me-5"
+						id="author" name="author" th:value="${book.author}">
+
+				</div>
+				<div class="form-group row mb-3">
+					<label for="price" class="form-label col ms-5"><h4>price:</h4></label>
+					<input type="text" class="form-control col me-5" id="price"
+						name="price" th:value="${book.price}">
+
+				</div>
+
+				<div>
+					<button class="btn btn-success mt-3" type="submit">Add</button>
+				</div>
+
+			</form>
+		</div>
+
+
+	</div>
+</body>
+</html>

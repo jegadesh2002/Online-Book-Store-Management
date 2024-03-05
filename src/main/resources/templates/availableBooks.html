@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Book Store</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bgimg">
+	<div>
+		<nav
+			class="navbar navbar-expand-sm bg-dark navbar-dark shift navContent">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand navTitle">Book Store</a>
+				</div>
+				<ul class="navbar-nav ">
+					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="availableBooks">Available
+							Books</a></li>
+					<li class="nav-item"><a class="nav-link" href="myBook">My
+							Books</a></li>
+
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="newBook" >New
+							Book Register</a></li>
+
+				</ul>
+			</div>
+
+
+		</nav>
+		<div class="container text-center">
+			<h1 class="text-primary">Available Books</h1>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Book Name</th>
+						<th scope="col">Author</th>
+						<th scope="col">Price</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="book:${listbook}">
+						<td th:text="${book.id}"></td>
+						<td th:text="${book.name}"></td>
+						<td th:text="${book.author}"></td>
+						<td th:text="${book.price}"></td>
+						<td> <a class="btn btn-warning btn-small ms-4"  th:href="@{/myBook/{id}(id=${book.id})}">Add to Mybook</a>
+							<a th:href="@{/editBook/{id}(id=${book.id})}"><i class="fa fa-edit ms-4 " style="font-size:22px;color:blue;"></i></a>
+							<a th:href="@{/delete/{id}(id=${book.id})}"><i class="fa fa-trash ms-4" style="font-size:25px;color:red" ></i></a>
+						</td>			
+					</tr>
+																		
+				</tbody>
+			</table>
+
+		</div>
+
+	</div>
+</body>
+</html>
